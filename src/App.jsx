@@ -15,7 +15,7 @@ function App() {
       <main className="hero">
         <h1>Book smart. Skip the wait.</h1>
         <p>Find a business, pick a time slot, and get confirmed instantly.</p>
-        <button className="btn btn-big">Browse business</button>
+        <button className="btn btn-big">available business </button>
       </main>
 
       <section className="directory">
