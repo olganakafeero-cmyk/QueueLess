@@ -1,12 +1,10 @@
 import './App.css'
-
-const businesses = [
-  { id: 1, name: 'Glow Salon', category: 'Hair & Beauty', location: 'Kampala' },
-  { id: 2, name: 'City Dental Clinic', category: 'Health', location: 'Ntinda' },
-  { id: 3, name: 'QuickFix Garage', category: 'Auto', location: 'Entebbe' },
-]
+import { useQuery } from 'convex/react'
+import { api } from '../convex/_generated/api'
 
 function App() {
+  const business = useQuery(api.business.list) ?? []
+
   return (
     <div className="page">
       <header className="navbar">
@@ -17,14 +15,14 @@ function App() {
       <main className="hero">
         <h1>Book smart. Skip the wait.</h1>
         <p>Find a business, pick a time slot, and get confirmed instantly.</p>
-        <button className="btn btn-big">Browse businesses</button>
+        <button className="btn btn-big">Browse business</button>
       </main>
 
       <section className="directory">
-        <h2>Available businesses</h2>
+        <h2>Available business</h2>
         <div className="cards">
-          {businesses.map((b) => (
-            <div className="card" key={b.id}>
+          {business.map((b) => (
+            <div className="card" key={b._id}>
               <h3>{b.name}</h3>
               <p>{b.category}</p>
               <p>📍 {b.location}</p>
